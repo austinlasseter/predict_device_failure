@@ -14,3 +14,8 @@ https://machinelearningmastery.com/indoor-movement-time-series-classification-wi
 https://www.analyticsvidhya.com/blog/2019/01/introduction-time-series-classification/
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html
+https://github.com/dsdaveh/device-failure-analysis
+https://github.com/kashyap16/Classification-predict_failure
+https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
+https://github.com/AVJdataminer/Sensor
+https://github.com/kyamz/ADS_Class
