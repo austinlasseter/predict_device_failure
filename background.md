@@ -8,8 +8,32 @@ https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
 https://github.com/AVJdataminer/Sensor
 https://github.com/kyamz/ADS_Class
 https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593
-https://granolanbar.github.io/projects/
+https://granolanbar.github.io/projects/   
+
+
+## Nguyen
 https://duymnguyen9.github.io/Telemetry-Device-Failure-Machine-Learning/    
+
+#### Descriptive stats
+* Month
+* Use `groupby` to create features (mean, sum)
+* Use PCA to reduce attributes 3 and 4 into a single feature
+* Imbalanced classes
+
+
+#### Modeling
+* kmeans crossvalidation (uses entire dataset)
+* F1, precision, recall
+* train-test split
+* tried XGBoost, Gradient Boost, AdaBoost. final model was XGB.
+* Display feature importance
+* F1 score: 84.8%
+
+#### Critique
+* Does not address time-series element
+* No real accounting for imbalanced classes
+* Fails to eliminate attribute 8
+
 
 
 ## Huiming
@@ -33,6 +57,7 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 #### Modeling
 * Random Forest Classifier, ExtraTreeClassifier, AdaboostClassifier, GradientBoostingClassifier, LinearSVC, Logistic Regression
 * Kfold crossvalidation, XGBoost  
+* Display feature importance  
 * Metric: Confusion Matrix, high accuracy (not reported)
 
 #### Critique
