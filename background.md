@@ -1,4 +1,4 @@
-# Background research
+ Background research
 
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
@@ -14,12 +14,30 @@ https://github.com/dsdaveh/device-failure-analysis
 * The attributes are all integers, but many have the appearance of being error codes, with a large percentage of 0 values and large gaps between frequent occurances. This is common with devices that may have error codes that are bit encoded (eg. 2,4,8,16...1024, etc.).
 * develop categorical variables with more predictive power than treating the attributes as integer
 * 6 attributes have very high percentage of zero values. These could be error codes or some other indicator
+* Attribute1 was also given the max Z score for the last 4 days. 
+* I also recorded the total number of records for a device (a proxy for service life)
+* maximum gap between log entries.
+* retirement data and the number of total failures for the 5 days prior are also calculated, but they were not used in the model
+
+#### Additional feature engineering
 * many of the attributes are heavily skewed. These should be transformed for some analyses although this wasn't necessary for my models.
+* Each device gets multiple features for each variable.
+* I included the mean and standard deviation for the entire device life 
+* as well as the last value and difference between first and last values (drift)
 
 #### Time Series
 * By transforming the dataset at the device grain, we have have a 9.08% failure rate
+* looking for changes to baseline operation metrics should be a good indicator of failure (i.e., variance)
 
 #### modeling
+* random forest
+* 10fold cross validation
+* ROC AUC=.95, F1, accuracy etc. as function of various cutoffs
+* This model catches about half the cases using a cutoff of 0.5
+* Drift for attribute 4 was almost always the primary indicator of failure across all folds and models. 
+* After that n_rec and and variance for attributes 6 and 7 were also important, but switched rank between the different folds/models.
+* There's not enough data to train a DL model with any efficacy
+* cost-benefit analysis of cut-off point.
 
 ## kashyap
 https://github.com/kashyap16/Classification-predict_failure   
