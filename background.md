@@ -6,8 +6,30 @@ https://github.com/dsdaveh/device-failure-analysis
 https://github.com/kashyap16/Classification-predict_failure
 https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
 https://github.com/AVJdataminer/Sensor
-https://github.com/kyamz/ADS_Class
+https://github.com/kyamz/ADS_Class   
+
+## Mohammad
 https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593   
+
+#### Descriptive stats
+* heatmap correlations
+* creates new dataframe: one row for each device (reduces dimensions from 124K to 1168)
+* joins groupby dataset to regular dataset
+* converts data from string to dt. creates month.
+* Nice scatter plots of working/failing devices
+* convert categorical features to dummies, then create interaction terms!!
+
+#### Modeling
+* Uses SMOTE for imbalanced classes
+* train-test split, crossvalidation
+* RF, GBC, logistic, KNN classifiers; voting ensemble
+* metric: accuracy, precision, recall. F1 score 98%.
+* displays feature importance
+
+#### Critique
+* using groupby MAX loses lots of information from the features.
+
+
 
 
 ## Nolan
@@ -88,3 +110,22 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 * Doesn't consider time-series element at all  
 * Hardly any feature engineering
 * Fails to address imbalanced classes
+
+
+## My reflections
+
+#### What is the research question?
+* "For any given device, will it _ever_ fail at any point during its life?" (classification)
+* "For any given device, how many days from launch until failure?" (regression)
+* "For each device, on any given day, what is the probability that the device will fail _tomorrow_?" (many, many classifications: 1168x304) -- most interesting, but also hardest.
+
+#### Feature engineering
+* Time since launch, in days.
+* First 3 digits of ID code
+* Rolling average of previous status codes
+* If there are empty "interval" days, do I need to create them and impute averages? (this is essentially missing data).
+* convert categorical features to dummies, then create interaction terms!!
+
+#### Reshape the data
+* Do I need 1168 rows, and then multiple blocks of columns (one block for each day?)
+* Do I need multiple datasets - one per day, each with 68 rows, 9 feature columns, plus a target (tomorrow's failure)?
