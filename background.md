@@ -1,7 +1,41 @@
- Background research
+# Background research
 
+## femvestor
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
+
+The goal of this task is to predict failing devices
+
+#### EDA
+* start at jan 3rd: there are 7 devices prior to that, which get cut off (no failure).
+* At the end of the period, only 27 devices are left.
+* Except for attributes 1,5, and 6, the other attributes have mostly zeroes. 
+* Attribute 1 is just a signal emitted by the devices.  When a device fails the signal will stop at its current value.  Therefore, I decided to remove it. No sig difference between signal and failure.
+* Attributes differ in their magnitudes.  Hence, scaling or centering may be required
+* Some devices are removed and then put back at different time period.  This is a problem if one is using RNN where time is taken into consideration. (is this gap in monitoring?)
+* Except for 4 devices, when a device fails it is removed
+* most devices are removed or fail before 20 days.
+* failed devices have a high failure up to 40 days, and then around 130 days.
+
+#### Devices removed and put back
+* Many working devices have been removed before 100 days of functioning.
+* how many devices have been removed and put back?  
+* given that I found 521 devices that were removed and then added at a later time means that these devices have to be removed when building the RNN.
+* left with 1013 devices but 91 failing devices.
+* Devices removed without any failure: remove all (this is almost the entire dataset). left with about 125 devices total.
+
+#### Feature Engineering
+* there's a sig correlation between failure and attributes (sig diff in means, etc)
+* I can ignore the failure day observations, and just use the 4 previous days (t-4, t-3, t-2, and t-1) to see if I can predict failure at time t.
+* a sequence of 4 days (t-4 to t-1) that map to an outcome at t.
+* in all the last 10 days, before November 2nd, 2015, the model was starting to predict possible anomalies in these devices.  This may explain why the operators removed them on that day.
+
+#### modeling
+* use RNN, more precisely an LSTM (Long Short Term Memory),  as the Deep Learning model of choice
+* the training set contains devices that failed on or before July 12th, 2015, and the testing set contains devices that failed after July 12th, 2015
+* recall and precision, as we know it, hid the fact the model performs well.
+* predicts tomorrow's failure on every day of each device.
+* Out of all the 45 devices, the model accuracy was 91.30%.  However, for failed devices, it had a recall of  78.94%.  On the other hand, for working devices, it had a precision of 84.38%.
 
 ## Hurst
 https://github.com/dsdaveh/device-failure-analysis   
