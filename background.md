@@ -1,10 +1,36 @@
 # Background research
 
-http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html
-http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html
-https://github.com/dsdaveh/device-failure-analysis
-https://github.com/kashyap16/Classification-predict_failure
-https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure   
+http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
+http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
+https://github.com/dsdaveh/device-failure-analysis   
+https://github.com/kashyap16/Classification-predict_failure   
+
+## gdhruv80
+https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure    
+
+#### EDA and Feature Engineering
+* Basically its a time to event analysis: model the survival time.
+* What does the lifecycle of a device look like - Is the hazard rate really high in the begining and end and kind on low during the most of the life in the middle just like say with a bulb/hardisk
+* Are there gaps between dates when values are recorded for a device
+* there are roughly 15% of the devices where the timeline is not continous
+* aggregating the data at a weekly level to remove too much noise
+* If the bulb is tested on any day of the week it is assumed to be good for the week
+* Populating correct nth Day from Begining - (Accounting for time gaps in recordings for a device)
+* we will have to create 2 new variables T0 and T1 which reflect the begin time and end time for each row in the dataset for the device
+* Note that the Time interval for each row is (T0-T1]
+* Attribute 3 and 9 have significant +ve correlation(good to know)
+* for 6 of the 9 variables more than 75% of the values are 0
+* Capping outliers to the 1.5 IQR value (this is better than imputing with the median)
+* including interaction terms of attribute 2 and 4 with time (T0). This should accomodate for the changing hazard ratios.
+
+#### Modeling
+* Cox - Regression which does not force any assumptions on the shape of underlying data
+* train, test, and validation sets
+* Building a final model based on the 3 attributes selected above
+* The model has a R(square) of 0.002 and is significant based on all 3 tests (Log-Liklihood,Wald and Logrank)
+* "the probability of survivial at the 300 day mark goes down from 59% to 40%."
+* Checking propotional hazard assumption (if HR is constant over time or not) --> requires time interactions
+* ROC AUC score = .72, confusion matrix, optimal cutoff point, lift calculation
 
 ## AVJ
 https://github.com/AVJdataminer/Sensor   
