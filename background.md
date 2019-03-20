@@ -2,7 +2,24 @@
 
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
+
+## Hurst
 https://github.com/dsdaveh/device-failure-analysis   
+
+#### EDA and Feature Engineering
+*  analyze this data at the device grain
+* Over 400 function devices are taken from the log in the first 5-6 days. The first failure doesn't occur until day 5.
+* double check that devices can only fail once: TRUE
+* there are 5 zombie drives: most drives are removed on the day failure is indicated, a few do not (see the plot below).
+* The attributes are all integers, but many have the appearance of being error codes, with a large percentage of 0 values and large gaps between frequent occurances. This is common with devices that may have error codes that are bit encoded (eg. 2,4,8,16...1024, etc.).
+* develop categorical variables with more predictive power than treating the attributes as integer
+* 6 attributes have very high percentage of zero values. These could be error codes or some other indicator
+* many of the attributes are heavily skewed. These should be transformed for some analyses although this wasn't necessary for my models.
+
+#### Time Series
+* By transforming the dataset at the device grain, we have have a 9.08% failure rate
+
+#### modeling
 
 ## kashyap
 https://github.com/kashyap16/Classification-predict_failure   
