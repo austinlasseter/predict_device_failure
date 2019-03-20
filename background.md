@@ -33,3 +33,9 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 #### Modeling
 * Random Forest Classifier, ExtraTreeClassifier, AdaboostClassifier, GradientBoostingClassifier, LinearSVC, Logistic Regression
 * Kfold crossvalidation, XGBoost  
+* Metric: Confusion Matrix, high accuracy (not reported)
+
+#### Critique
+* Doesn't consider time-series element at all  
+* Hardly any feature engineering
+* Fails to address imbalanced classes
