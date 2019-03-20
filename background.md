@@ -7,8 +7,32 @@ https://github.com/kashyap16/Classification-predict_failure
 https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
 https://github.com/AVJdataminer/Sensor
 https://github.com/kyamz/ADS_Class
-https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593
+https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593   
+
+
+## Nolan
 https://granolanbar.github.io/projects/   
+
+#### Descriptive Stats
+* Heatmap correlation matrix  
+* measurement are taken until the device fails, since the last measurement is the failure
+* Creating a column to measure time called 'daysActive
+* Season (similar to month)
+
+
+#### Modeling
+* train-test split
+* oversampling to account for imbalanced classes (SMOTE)
+* Accuracy, precision, recall, confusion matrix, AUC
+* kfold crossval
+* logistic regression, ridge, stochastic gradient descent classifier
+* gradient boost, random forest gets AUC of 83%
+
+##### Critique
+* Better to use Lasso regression to identify meaningful features, prevent overfit
+* Fails to account for time series data
+
+
 
 
 ## Nguyen
