@@ -5,13 +5,49 @@ http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html
 https://github.com/dsdaveh/device-failure-analysis
 https://github.com/kashyap16/Classification-predict_failure
 https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
-https://github.com/AVJdataminer/Sensor
+https://github.com/AVJdataminer/Sensor   
+
+## Kyamz
 https://github.com/kyamz/ADS_Class   
+
+#### EDA and Feature Engineering
+* Does all her work on AWS
+* Groups by device (1168 rows)
+* About 9% of devices have a recorded failure. We will likely need to group by devices to help with the class imbalance.
+* Looking at within-device variance for each feature: Attributes 2, 3, 4, 7 and 9 all have a variance of zero for over 75% of devices.
+* Rare variance: 164 of the 934 total devices have 'rare variance'. 63 of the 85 failing devices have this feature
+* only 101 of the 849 non-failing devices have variance in attributes 2, 3, 4, 7 and 9.
+* 3 devices with start dates other than Jan 1, 2015.
+* Capture interactions.
+* Clean up a few outliers.
+* Outcome: Device fails permanently.
+
+#### Time-series data
+* Needs data _every day_. Are there periodic gaps? Yes.
+* Extensive gaps don't correlate with failure, but they do with rare variance.
+* Ideally we would want every device to either make it to the end of dataset's time period or end in failure.
+* What should we do with the devices that don't end in failure but whose data record ends abruptly? Most of data.
+* group all the data by device ID and make our modeling strategy to build a binary classifier targeting if the device will have a failure record or not.
+* risky if we define our target model to be something like 'failure will happen within next week, month, etc).
+
+#### Device ID groups
+* ID string is a feature: S, W, and Z.
+* W-type devices are more likely to fail than the other two groups.
+* A pairplot also demonstrates that there are major differences in the sensor data across groups: ie intersection of attributes 1&3.
+
+#### Modeling
+* splits into training, validation, and test sets.
+* XGBoost.
+* hyperparameter tuning.
+* ROC AUC .94, f1 score .68
+* feature importances
+
+### Critique
 
 ## Mohammad
 https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593   
 
-#### Descriptive stats
+#### EDA and Feature Engineering
 * heatmap correlations
 * creates new dataframe: one row for each device (reduces dimensions from 124K to 1168)
 * joins groupby dataset to regular dataset
@@ -28,6 +64,7 @@ https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593
 
 #### Critique
 * using groupby MAX loses lots of information from the features.
+* Doesn't account for time-series data.
 
 
 
@@ -35,7 +72,7 @@ https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593
 ## Nolan
 https://granolanbar.github.io/projects/   
 
-#### Descriptive Stats
+#### EDA and Feature Engineering
 * Heatmap correlation matrix  
 * measurement are taken until the device fails, since the last measurement is the failure
 * Creating a column to measure time called 'daysActive
@@ -60,12 +97,11 @@ https://granolanbar.github.io/projects/
 ## Nguyen
 https://duymnguyen9.github.io/Telemetry-Device-Failure-Machine-Learning/    
 
-#### Descriptive stats
+#### EDA and Feature Engineering
 * Month
 * Use `groupby` to create features (mean, sum)
 * Use PCA to reduce attributes 3 and 4 into a single feature
 * Imbalanced classes
-
 
 #### Modeling
 * kmeans crossvalidation (uses entire dataset)
@@ -85,7 +121,7 @@ https://duymnguyen9.github.io/Telemetry-Device-Failure-Machine-Learning/
 ## Huiming
 http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-predict-defaults-with-imbalanced-data/
 
-#### Descriptive Stats
+#### EDA and Feature Engineering
 * x1 and x6 are like numeric variable while the others are like categorical variable  
 * x2, x3, x7, x8, x9 has lots of zeros  
 * get the time duration from first recording time to positive target time   
@@ -125,6 +161,7 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 * Rolling average of previous status codes
 * If there are empty "interval" days, do I need to create them and impute averages? (this is essentially missing data).
 * convert categorical features to dummies, then create interaction terms!!
+* Rare variance: 164 of the 934 total devices have 'rare variance'. 63 of the 85 failing devices have this feature
 
 #### Reshape the data
 * Do I need 1168 rows, and then multiple blocks of columns (one block for each day?)
