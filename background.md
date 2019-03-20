@@ -4,8 +4,28 @@ http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html
 https://github.com/dsdaveh/device-failure-analysis
 https://github.com/kashyap16/Classification-predict_failure
-https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure
+https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure   
+
+## AVJ
 https://github.com/AVJdataminer/Sensor   
+
+#### EDA and Feature Engineering
+* Failures and Percent Failures by Month
+* group by device
+* failure is most highly correlated with attributes; 2,4,7,& 8
+* outliers: remove data that is outside 1.5 times the interquartile range.
+* replace the NA's with medians calculated excluding those outliers and replace NA's with the medians.
+* review the level of variance within the variable: Remove Variables with Near Zero Variance
+* Rescale and Center the Data for Modeling
+* Find Variables That are 100% Unique values: These need to be removed, usually a count or id variable.
+* Could create PCA or KNN to get more features.
+
+#### Modeling
+* train-test split
+* logistic regression, random forest, MxNET neural net
+* AUC, conf matrix, accuracy
+* Neural Network Model Performance on holdout Test set
+* Random Forest Model has best overall performance.
 
 ## Kyamz
 https://github.com/kyamz/ADS_Class   
