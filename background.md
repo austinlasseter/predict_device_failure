@@ -3,7 +3,19 @@
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
 https://github.com/dsdaveh/device-failure-analysis   
+
+## kashyap
 https://github.com/kashyap16/Classification-predict_failure   
+
+#### EDA and Feature Engineering
+* heatmap: attrute 9 and 3 seem to have a good co-relation though not high enough
+* resampling data for imbalanced classes
+
+#### Modeling
+* train-test split
+* accuracy, recall, conf matrix, roc auc
+* decision tree classifier, random forest, naive bayes, svm
+* cool model comparison
 
 ## gdhruv80
 https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure    
