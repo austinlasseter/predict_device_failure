@@ -293,3 +293,7 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 #### Reshape the data
 * Do I need 1168 rows, and then multiple blocks of columns (one block for each day?)
 * Do I need multiple datasets - one per day, each with 68 rows, 9 feature columns, plus a target (tomorrow's failure)?
+
+#### Collapse on device ID?
+* If there is no variance at all other than date, then there's no need to keep all this data.
+* If there's only a little variance, then we can capture the std dev of each, and tag certain devices as "high variance."
