@@ -297,3 +297,5 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 #### Collapse on device ID?
 * If there is no variance at all other than date, then there's no need to keep all this data.
 * If there's only a little variance, then we can capture the std dev of each, and tag certain devices as "high variance."
+* This is variance at the device level, not at the column level (ie, for each device, little/no change per var over life)
+  - How would I calculate this? "High variance device."
