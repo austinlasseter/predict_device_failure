@@ -1,5 +1,21 @@
 # Background research
 
+## Wahl
+https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1#x_Data-Sources
+* Telemetry data almost always comes with time-stamps which makes it suitable for calculating lagging features. A common method is to pick a window size for the lag features to be created and compute rolling aggregate measures such as mean, standard deviation, minimum, maximum, etc. to represent the short term history of the telemetry over the lag window. In the following, rolling mean and standard deviation of the telemetry data over the last 3 hour lag window is calculated for every 3 hours.
+* add blank entries for all other hourly timepoints (since no errors occurred at those times)
+* Predictive models have no advance knowledge of future chronological trends: in practice, such trends are likely to exist and to adversely impact the model's performance. To obtain an accurate assessment of a predictive model's performance, we recommend training on older records and validating/testing using newer records.
+* Imbalanced classes: To help with this problem, sampling techniques such as oversampling of the minority examples are usually used.
+
+## zaradski
+https://towardsdatascience.com/water-pumps-maintenance-prediction-data-science-illustrated-20c7100017c5
+
+* Trimming high-cardinality categorical variables: group all rare (i.e. being observed less than 40 times in a dataset of >50,000 records ) categorical values into a single “rare” value.
+* Encoding categorical variables: we perform this conversion using the “pandas.get_dummies” function 
+* Identifying highly-correlated features: to avoid “co-linearity” issues during the model estimation procedure and to reduce the dimension of the model optimization problem we should drop some of the near-equivalent columns.
+* Identifying key predictive features: Identifying the variables the have significant predictive power on the target variable is similar to identifying “correlated” variables. 
+* Interaction terms: If your dataset predictive variables have a lot of useful interactions (see the notebook) these models are likely to outperform the logistic regression accuracy : Random Forest (covered in the notebook) and XGBoost.
+
 ## femvestor
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
@@ -293,3 +309,9 @@ http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-p
 #### Reshape the data
 * Do I need 1168 rows, and then multiple blocks of columns (one block for each day?)
 * Do I need multiple datasets - one per day, each with 68 rows, 9 feature columns, plus a target (tomorrow's failure)?
+
+#### Collapse on device ID?
+* If there is no variance at all other than date, then there's no need to keep all this data.
+* If there's only a little variance, then we can capture the std dev of each, and tag certain devices as "high variance."
+* This is variance at the device level, not at the column level (ie, for each device, little/no change per var over life)
+  - How would I calculate this? "High variance device."
