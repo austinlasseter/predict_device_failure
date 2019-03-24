@@ -1,5 +1,12 @@
 # Background research
 
+## Wahl
+https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1#x_Data-Sources
+* Telemetry data almost always comes with time-stamps which makes it suitable for calculating lagging features. A common method is to pick a window size for the lag features to be created and compute rolling aggregate measures such as mean, standard deviation, minimum, maximum, etc. to represent the short term history of the telemetry over the lag window. In the following, rolling mean and standard deviation of the telemetry data over the last 3 hour lag window is calculated for every 3 hours.
+* add blank entries for all other hourly timepoints (since no errors occurred at those times)
+* Predictive models have no advance knowledge of future chronological trends: in practice, such trends are likely to exist and to adversely impact the model's performance. To obtain an accurate assessment of a predictive model's performance, we recommend training on older records and validating/testing using newer records.
+* Imbalanced classes: To help with this problem, sampling techniques such as oversampling of the minority examples are usually used.
+
 ## femvestor
 http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
 http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html   
