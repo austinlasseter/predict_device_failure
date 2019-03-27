@@ -7,6 +7,9 @@ probability of a device failure. When building this model, be sure to minimize f
 false negatives. The column you are trying to predict is called failure with binary value 0 for
 non-failure and 1 for failure.
 
+### Jupyter notebooks can be viewed here
+https://nbviewer.jupyter.org/
+
 #### Additional Reading
 
 https://git.generalassemb.ly/austinlasseter/10.04-timeseries-arima_aic_forecasting-lesson   
