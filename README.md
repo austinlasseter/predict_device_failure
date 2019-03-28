@@ -1,6 +1,6 @@
 # Predict Device Failure
 
-Challenge: A large fleet of devices requires maintenance to prevent device failure. This repository presents a predictive analysis to help with device maintenance by predicting failure given a series of device attributes, measured daily over the course of 11 months in 2015. The final analysis employs a logistic regression model and has a ROC-AUC score of 78%. 
+Challenge: A large fleet of devices requires maintenance to prevent device failure. This repository presents a predictive analysis to help with device maintenance by predicting failure given a series of device attributes, measured daily over the course of 11 months in 2015. The final analysis employs a neural network model with a F1 Score of .92 and a ROC-AUC score of .81.
 
 Dataset: 124,164 daily readings from 1163 devices across 9 attributes related to device failure.
 
