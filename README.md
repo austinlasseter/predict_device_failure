@@ -11,5 +11,5 @@ non-failure and 1 for failure."
 https://nbviewer.jupyter.org/
 
 <div align="center">
-    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/logistic.png" width="500px"</img> 
+    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/logistic.png" width="1000px"</img> 
 </div>
