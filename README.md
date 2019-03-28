@@ -1,29 +1,25 @@
-# predict_device_failure
+# Predict Device Failure
+
+Challenge: A large fleet of devices requires maintenance to prevent device failure. This repository presents a predictive analysis to help with device maintenance by predicting failure given a series of device attributes, measured daily over the course of 11 months in 2015. The final analysis employs a logistic regression model and has a ROC-AUC score of 78%. 
+
+Dataset: 124,164 daily readings from 1163 devices across 9 attributes related to device failure.
+
+## Steps in Analysis:  
+
+* [1. Data cleaning](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/01_data_cleaning.ipynb) 
+* [2. EDA by device ID](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/02_devices.ipynb) 
+* [3. Trimming the dataset](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/03_trimming.ipynb)  
+* [4. EDA by other variables](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/04_EDA.ipynb) 
+* [5. Feature engineering](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/05_feature_engineering.ipynb)  
+* [6. Modeling and Results](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/06_modeling.ipynb)
+
+<div align="center">
+    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/servicelife.png" width="1000px"</img> 
+</div>
+
+<div align="center">
+    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/logistic.png" width="1000px"</img> 
+</div>
 
 [Problem Description](https://drive.google.com/open?id=0B_cz06nPiN5CVk1qci1EQUhyM3JON0lROGVZWmJoelR2aHFV)
 
-You are tasked with building a predictive model using machine learning to predict the
-probability of a device failure. When building this model, be sure to minimize false positives and
-false negatives. The column you are trying to predict is called failure with binary value 0 for
-non-failure and 1 for failure.
-
-### Jupyter notebooks can be viewed here
-https://nbviewer.jupyter.org/
-
-#### Additional Reading
-
-https://git.generalassemb.ly/austinlasseter/10.04-timeseries-arima_aic_forecasting-lesson   
-https://machinelearningmastery.com/indoor-movement-time-series-classification-with-machine-learning-algorithms/   
-https://www.analyticsvidhya.com/blog/2019/01/introduction-time-series-classification/   
-http://femvestor.blogspot.com/2017/10/part-1-pitfalls-in-building-failures.html   
-http://femvestor.blogspot.com/2017/10/part-2-rnn-model-to-predict-device.html    
-https://github.com/dsdaveh/device-failure-analysis    
-https://github.com/kashyap16/Classification-predict_failure    
-https://github.com/gdhruv80/Hazard-Modelling-Time-to-device-failure    
-https://github.com/AVJdataminer/Sensor    
-https://github.com/kyamz/ADS_Class   
-https://gist.github.com/mohammadbutt/3659d0564ce41220a38e9cd2be282593   
-https://granolanbar.github.io/projects/   
-https://duymnguyen9.github.io/Telemetry-Device-Failure-Machine-Learning/     
-http://songhuiming.github.io/pages/2017/09/23/data-engineering-and-modeling-01-predict-defaults-with-imbalanced-data/   
-https://apps.dtic.mil/dtic/tr/fulltext/u2/1017885.pdf    
