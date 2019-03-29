@@ -15,11 +15,11 @@ Dataset: 124,164 daily readings from 1163 devices across 9 attributes related to
 * [7. Neural Network Results](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/07_tensorflow.ipynb)
 
 <div align="center">
-    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/servicelife.png" width="1000px"</img> 
+    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/net_metric.png" width="1000px"</img> 
 </div>
 
 <div align="center">
-    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/logistic.png" width="1000px"</img> 
+    <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/net_rocauc.png" width="1000px"</img> 
 </div>
 
 [Problem Description](https://drive.google.com/open?id=0B_cz06nPiN5CVk1qci1EQUhyM3JON0lROGVZWmJoelR2aHFV)
