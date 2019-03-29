@@ -1,6 +1,6 @@
 # Predict Device Failure
 
-Challenge: A large fleet of devices requires maintenance to prevent device failure. This repository presents a predictive analysis to help with device maintenance by predicting failure given a series of device attributes, measured daily over the course of 11 months in 2015. The final analysis employs a logistic regression model and has a ROC-AUC score of 78%. 
+Challenge: A large fleet of devices requires maintenance to prevent device failure. This repository presents a predictive analysis to help with device maintenance by predicting failure given a series of device attributes, measured daily over the course of 11 months in 2015. The final analysis employs a neural network model with a F1 Score of .92 and a ROC-AUC score of .81.
 
 Dataset: 124,164 daily readings from 1163 devices across 9 attributes related to device failure.
 
@@ -11,7 +11,8 @@ Dataset: 124,164 daily readings from 1163 devices across 9 attributes related to
 * [3. Trimming the dataset](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/03_trimming.ipynb)  
 * [4. EDA by other variables](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/04_EDA.ipynb) 
 * [5. Feature engineering](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/05_feature_engineering.ipynb)  
-* [6. Modeling and Results](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/06_modeling.ipynb)
+* [6. Logistic Regression Results](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/06_modeling.ipynb) 
+* [7. Neural Network Results](https://nbviewer.jupyter.org/github/austinlasseter/predict_device_failure/blob/master/analysis/07_tensorflow.ipynb)
 
 <div align="center">
     <img src="https://github.com/austinlasseter/predict_device_failure/blob/master/images/servicelife.png" width="1000px"</img> 
